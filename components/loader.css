@@ -1,0 +1,90 @@
+
+/* EBOU — Styles indépendants du loader */
+
+.ebou-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #07130e;
+  color: #ffffff;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 450ms ease,
+    visibility 450ms ease;
+}
+
+.ebou-loader__content {
+  width: min(100%, 320px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ebou-loader__logo {
+  width: 92px;
+  height: 92px;
+  object-fit: cover;
+  border-radius: 22px;
+  margin-bottom: 22px;
+  box-shadow: 0 0 35px rgba(146, 163, 159, 0.22);
+}
+
+.ebou-loader__brand {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.ebou-loader__message {
+  margin: 10px 0 30px;
+  color: rgb(255 255 255 / 68%);
+  font-size: 14px;
+}
+
+.ebou-loader__track {
+  width: 100%;
+  height: 3px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: rgb(255 255 255 / 12%);
+}
+
+.ebou-loader__progress {
+  display: block;
+  width: 35%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #006a4e, #f04444);
+  animation: ebou-loader-progress 1.5s ease-in-out infinite;
+  transform-origin: left;
+}
+
+@keyframes ebou-loader-progress {
+  0% {
+    transform: translateX(-110%);
+  }
+
+  100% {
+    transform: translateX(310%);
+  }
+}
+
+.ebou-loader.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ebou-loader,
+  .ebou-loader__progress {
+    transition: none;
+    animation: none;
+  }
+}
